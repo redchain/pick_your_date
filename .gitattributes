@@ -1,11 +1,21 @@
-* text=auto eol=lf
+* text=auto
 
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
-*.md diff=markdown
-*.php diff=php
+# Normalize EOL for all text files
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.blade.php text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+# Keep binary files untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.pdf binary
+*.exe binary
