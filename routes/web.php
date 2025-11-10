@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\BookingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
+
+Route::get('/bookings/create/{serviceId}', [BookingController::class, 'create'])->name('bookings.create');
+Route::post('/bookings/store', [BookingController::class, 'store'])->name('bookings.store');
+Route::get('/bookings/success', [BookingController::class, 'success'])->name('bookings.success');
